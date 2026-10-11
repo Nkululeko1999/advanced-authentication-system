@@ -7,29 +7,29 @@ import AppLayout from "@/components/layouts/app-layout";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/login" replace />,
+    element: <Navigate to="/auth/login" replace />,
   },
   {
     element: <AuthLayout />,
     children: [
       {
-        path: "/login",
+        path: "/auth/login",
         lazy: () => lazyRoute(() => import("@/pages/auth/login/page")),
       },
       {
-        path: "/register",
+        path: "/auth/register",
         lazy: () => lazyRoute(() => import("@/pages/auth/register/page")),
       },
       {
-        path: "/forgot-password",
+        path: "/auth/forgot-password",
         lazy: () => lazyRoute(() => import("@/pages/auth/forgot-password/page")),
       },
       {
-        path: "/reset-password",
+        path: "/auth/reset-password",
         lazy: () => lazyRoute(() => import("@/pages/auth/reset-password/page")),
       },
       {
-        path: "/verify-account",
+        path: "/auth/verify-account",
         lazy: () => lazyRoute(() => import("@/pages/auth/verify-account/page")),
       },
     ],
