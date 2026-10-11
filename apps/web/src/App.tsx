@@ -1,14 +1,9 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import { Typography } from '@mui/material';
-
+import { AppTypography } from '@advanced-auth/ui/typography'
 
 function App() {
   return (
     <div>
-      <Typography variant="h5">App</Typography>
+      <AppTypography variant="pageTitle">App</AppTypography>
     </div>
   )
 }
