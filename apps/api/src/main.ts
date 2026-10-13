@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import { AppModule } from './app.module.js';
 import { configureApp } from './configure-app.js';
 import { setupSwagger } from './config/swagger.config.js';
+import { requestIdMiddleware } from './common/middleware/request-id.middleware.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -44,13 +45,16 @@ async function bootstrap() {
     }),
   );
 
+  app.use(requestIdMiddleware);
   configureApp(app);
 
   setupSwagger(app, configService);
 
   await app.listen(port);
 
-  console.log(`Advanced Authentication System API running at http://localhost:${port}/${apiPrefix}`);
+  console.log(
+    `Advanced Authentication System API running at http://localhost:${port}/${apiPrefix}`,
+  );
 }
 
 void bootstrap();
